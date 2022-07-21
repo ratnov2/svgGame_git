@@ -1,0 +1,10 @@
+.body{
+    width: 700px;
+    min-height: 1200px;
+    background-color: white;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+    color: rgb(49, 39, 39) ;
+    z-index: 10;
+}

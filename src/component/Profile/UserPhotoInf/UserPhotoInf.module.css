@@ -1,0 +1,52 @@
+.avaInform{
+    display: flex;
+}
+.avaInform .information{
+    border:1px solid rgb(214, 214, 214);
+    margin-top: 17px;
+    background-color: rgb(236, 239, 243);
+    padding: 5px;
+    border-radius: 5px;
+    height: 290px;
+}
+.ava{
+    border-radius: 2px;
+    width: 200px;
+    height: 250px;
+}
+.avaInform .avaInformLoad{
+    border: 1px solid rgb(214, 214, 214);
+    padding: 10px;
+    text-align: left;
+    border-radius: 0 0 10px 10px;
+    background-color: rgb(236, 239, 243);
+    
+}
+.avaInform .avaInformLoad img{
+    margin-bottom: 20px;
+    border-radius: 2px 2px 5px 5px;
+}
+.avaInform .avaInformLoad input{
+    display: block;
+    max-width: 200px;
+    margin-bottom:10px
+}
+.avaInform section{
+    width: 100%;
+    margin-left: 15px;
+    text-align: left;
+}
+.avaInform .avaInformLoad p{
+     text-align: center;
+}
+
+.avaInform .avaInformLoad .LoadFile{
+    opacity: 1;
+}
+.avaInform .status_name{
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+     border: 1px solid rgb(214, 214, 214);
+    background-color: rgb(236, 239, 243);
+}

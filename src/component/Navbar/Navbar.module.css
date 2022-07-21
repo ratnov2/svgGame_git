@@ -1,0 +1,21 @@
+.DecorA{
+    text-decoration: none;
+    color: rgb(185, 183, 183);
+}
+.decorUl li{
+    list-style-type: none;
+    margin-left: 20px;
+    
+}
+.decorUl li a{
+   
+    font-weight: bold;
+    z-index: 100;
+}
+.decorUl{
+    display: flex;
+}
+.active{
+    color: rgb(241, 241, 243);
+    z-index: 1000;
+}

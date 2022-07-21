@@ -1,0 +1,7 @@
+.status{
+    padding: 0 5px 0 5px;
+}
+.status:hover{
+    background-color: azure;
+    cursor: pointer;
+}

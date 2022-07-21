@@ -1,0 +1,92 @@
+
+.error_span{
+    max-width: 350px;
+    margin: auto;
+    
+}
+.error_span h1{
+    text-align: center;
+    margin: auto;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+.error_span p{
+    text-align: center;
+    margin-left: 30px;
+    width: 350px;
+    position: absolute;
+    color:red
+}
+.error_span input{
+    text-align: center;
+    border-radius: 5px;
+}
+.input_block{
+    padding-bottom: 20px;   
+}
+.input_block label{
+    width: 200px;
+}
+.input_block input {
+    width: 230px;
+    padding: 15px;
+    height: 20px;
+    border: 2px solid black;
+    outline:none;
+}
+.error_span label{
+    font-weight: bold;
+    color: rgb(78, 52, 13);
+    margin-right: 10px;
+}
+.errors_span_border input{
+    border: 2px solid red;
+}
+
+.errors_span_border2 input{
+    border: 2px solid green;;
+}
+
+.formStyle {
+    margin-top: 15px;
+    border: 1px solid rgb(214, 214, 214);
+    background-color: rgb(236, 239, 243);
+    border-radius: 5px;
+    /* height: 0px; */
+}
+
+.formDiv{
+    /* padding: 0;
+    height: 0;
+    border: 0;      */
+    padding: 10px;
+    /* position: relative; */
+
+    /* height: 0; */
+    /* opacity: 0;
+    display: none; */
+    
+}
+.formDiv{
+    display: flex;
+    column-count: 2;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.formDiv label{
+    position: absolute;
+    display: none;
+ }
+ .formStyle label{
+    display: none;
+ }
+@media all and (min-width: 1000px) {
+    .formDiv{
+        display: flex;
+        justify-content: space-between;
+    }
+    .formDiv label{
+       position: absolute;
+       display: none;
+    }
+}

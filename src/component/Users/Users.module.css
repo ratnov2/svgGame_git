@@ -1,0 +1,32 @@
+.User_img{
+    width: 200px;
+    margin: 20px;
+    border-radius: 50%;
+}
+.block_user_flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.block_user_flex button{
+    padding: 5px 27px 5px 27px;
+    background-color: rgb(64, 64, 182);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.block_user_flex button:hover{
+    background-color: rgba(64, 64, 182, 0.664);
+}
+.User_info{
+    display: flex;
+    align-items: center;
+}
+.active{
+    color:red
+}
+.buttonDisabled button:disabled{
+    background-color: rgb(65, 87, 116);
+}

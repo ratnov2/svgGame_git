@@ -1,38 +1,101 @@
-.App {
-  text-align: center;
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+  [data-theme="dark"] .site-layout-content {
+    background: #141414;
   }
+  .site-layout .ava-inform-reduct{
+    width: 70px;
+    height: 64px;
+    display: table-cell;
+    vertical-align: middle;
+ 
+  }
+  .site-layout .ava-inform-reduct:hover{
+    background-color: rgba(150, 150, 150,0.3);
+   
+  }
+  .site-layout .ava-inform-reduct a{
+    height: 64px;
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+    
+    
+  }
+  .site-layout  .ava-inform-reduct .v1{
+    display: block;
+    width: 45px;
+    border-radius: 50%;
+    margin: auto;
+  }
+.site-layout .ava-inform-reduct .list-profile{
+  width: 200px;
+  height: 220px;
+  padding: 0;                                                                       
+  display: none; 
+  position: absolute;
+  background-color: rgb(100, 116, 129);
+  list-style-type: none;
+  color: rgb(79, 185, 255);
+  /* border: 1px solid rgb(235, 235, 235); */
+  padding: 10px;
+  z-index: 10000;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.site-layout .ava-inform-reduct:hover .list-profile{
+  display: block;
+  position: absolute;
+}
+.site-layout .ava-inform-reduct .list-profile a{
+  display: block;
+  width: 100%;
+  height: 100px;
+}
+.site-layout .ava-inform-reduct .list-profile div{
+  height: 25px;
+}
+.site-layout .ava-inform-reduct .list-profile div:first-child{
+  height: 100px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
+  border: 1px solid black;
+  background-color: rgb(96, 124, 143);
+  border-radius: 0 0 5px 5px;
 }
-
-.App-link {
-  color: #61dafb;
+.site-layout .ava-inform-reduct .list-profile div:first-child img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.site-layout .ava-inform-reduct .list-profile div:first-child p{
+  margin: 10px;
+  font-weight: bold;
+}
+.HeaderDiv{
+  display: flex;
+  position: relative;
+}
+.HeaderDiv .loadForm{
+  position: absolute;
+  right: 10px;
+}
+.errorFormEnd {
+  margin: 20px;
+  font-weight: bold;
+  font-size: 17px;
+  color:red
 }
