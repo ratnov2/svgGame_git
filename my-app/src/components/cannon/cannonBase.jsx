@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
-import { pathFromBezierCurve } from './formula';
+import { pathFromBezierCurve } from '../../InitHelp/formula';
+
 
 const CannonBase = (props) => {
    

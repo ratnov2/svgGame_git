@@ -1,14 +1,15 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { pathFromBezierCurve } from './formula';
-import { getAncke } from '../reducers/valueBeginSelector';
+
+
 import { useEffect } from 'react';
+import { pathFromBezierCurve } from '../../InitHelp/formula';
 
 const CannonPipe = (props) => {
     // const ancle = useCallback(getAncke)
     // const uy = getPosX/getPosY
     useEffect(()=>{
-        console.log('ancle: '+props.ancle)
+        //console.log('ancle: '+props.ancle)
     },[props.ancle])
   const cannonPipeStyle = {
     fill: '#999',
