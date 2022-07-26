@@ -1,10 +1,12 @@
-import { element } from "prop-types"
+import { array, element } from "prop-types"
 import { coordYRandInit, randomSides, randomXCoord } from "../InitHelp/HelpFunction"
 
 const POSITION_X_Y ='POSITION_X_Y'
 const POSITION_BALE_XY='POSITION_BALE_XY'
 const FLYING_OBJECT = 'FLYING_OBJECT'
 const PUSH_ELEMENT_NLO = 'PUSH_ELEMENT_NLO'
+const KILL_NLO_IADRO = 'KILL_NLO_IADRO'
+const START_GAME = 'START_GAME'
 
 const sidesNlo=['left','right'] // обозначение в какую сторону будут лететь тарелки
 
@@ -80,22 +82,20 @@ let initialState = {
         id:randomSides(sidesNlo),
         x:randomXCoord(),
         y:coordYRandInit(window.innerHeight/2) //исправить нижнее положение
-    }]
+    }],
+    popadanie:false,
+    startGame:false
 }
 //console.log(randomInitCoord(initialState.flyingObject))
 
 const valueBeginReducer =(state=initialState,action)=>{
     switch(action.type){
         case POSITION_X_Y:
-            //console.log(Math.atan(action.y/(action.x))*57.29577951308)
-            
             return{
                 ...state,
                 x:action.x,
                 y:action.y,
-                uk:Math.atan(action.y/(action.x))*57.29577951308
-  
-                
+                uk:Math.atan(action.y/(action.x))*57.29577951308             
             }
         case POSITION_BALE_XY:
         return{
@@ -108,22 +108,31 @@ const valueBeginReducer =(state=initialState,action)=>{
                 flyingObject: [...state.flyingObject.map((u)=>{
                     if(u.x > (window.innerWidth/2+100))
                         u.id = 'left'
-                    else if( u.x < (-window.innerWidth/2-100) )
+                    else if(u.x < (-window.innerWidth/2-100))
                         u.id = 'right'
                     if(u.id == 'left'){
                         u.x -=5
                     }
                     else if (u.id=='right')u.x +=5
-
                     return u})]
-                
             }
         case PUSH_ELEMENT_NLO:
             return{
                 ...state,
-                flyingObject:[...state.flyingObject,action.element]
+                flyingObject:[...state.flyingObject,action.element],
+
             }
-        
+        case KILL_NLO_IADRO:
+            return{
+                ...state,
+                flyingObject:state.flyingObject.filter((item,index)=>index!=action.index),
+                popadanie:true
+            }
+        case START_GAME:
+            return{
+                ...state,
+                startGame:action.stan
+            }
     default: return state
     }
 }
@@ -144,12 +153,26 @@ export const pushElementNLOCreatore = (element)=>({
     type:PUSH_ELEMENT_NLO,
     element
 })
+export const killNloIadroCreatore = (index)=>({
+    type:KILL_NLO_IADRO,
+    index
+})
+export const startGameCreatore = (stan)=>({
+    type:START_GAME,
+    stan
+})
 
+export const changeStartGame = (stan)=>(dispatch)=>{ 
+    dispatch(startGameCreatore(stan))
+}
+export const deleteNloIadro = (index)=>(dispatch)=>{ 
+    dispatch(killNloIadroCreatore(index))
+}
 export const pushElementNLO = (element)=>(dispatch)=>{ 
     dispatch(pushElementNLOCreatore(element))
 }
-export const setFlyingObject = (position)=>(dispatch)=>{ 
-    dispatch(flyingObjectCreatore(position))
+export const setFlyingObject = ()=>(dispatch)=>{ 
+    dispatch(flyingObjectCreatore())
 }
 export const positionXY = (x,y)=>(dispatch)=>{ 
     dispatch(positionXYCreatore(x,y))

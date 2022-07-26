@@ -25,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <Canvas />
+      {/* <div className="BeginGame">lwkefnlknwef</div> */}
     </div>
   );
 }

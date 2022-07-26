@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Joti+One');
+.App{
+    position: relative;
+}
+.BeginGame{
+    width: 100%;
+    border: 2px solid black;
+    position: absolute;
+    top: 0;
+    height: 100%;
+}

@@ -44,13 +44,12 @@ const Sky = (props) => {
       setInterval(()=>{
         changePosXY(posXY =>({x:posXY.x+ballPosMove('sin',anke),y:posXY.y+ballPosMove('cos',anke)})); //i have setInterval + hooks; dan abramov - useInterval
      },20)
-      
      }
     const skyStyle = {
       fill: '#30abef',
     };
-    const skyWidth = 5000;
-    const gameHeight = 1200;
+    const skyWidth = 5000;           
+    const gameHeight = 1200;    
     return (
       <rect
         style={skyStyle}
@@ -58,8 +57,8 @@ const Sky = (props) => {
         y={100 - gameHeight}
         width={skyWidth}
         height={gameHeight}
-        onMouseMove={(e)=>posX(e)}
-        onClick={g ? ()=>rast() : undefined} 
+        //onMouseMove={(e)=>posX(e)}
+        //onClick={g ? ()=>rast() : undefined} 
       />
       
     );

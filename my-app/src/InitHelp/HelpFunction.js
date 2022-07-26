@@ -1,15 +1,23 @@
+const sidesNlo=['left','right']
 
 export let randomInitCoord =flyingObject=>{
     //flyingObject = flyingObject.flyingObject
+
     let coord = -Math.floor(Math.random()*(window.innerHeight-167)+100) ///исправить на посоянное значение нижней стенки
-    flyingObject.forEach(element=>{
-        console.log('dude')
-        if(Math.abs(coord+element.y)<=70) randomInitCoord(flyingObject)
+    
+    coord = coordYRandInit(100)
+    //console.log(coord)
+    flyingObject.forEach((element,index)=>{
+       // console.log(index)
+        if(flyingObject.length==index) return coord
+        if(Math.abs(coord-element.y)<=70) {
+            console.log(Math.abs(coord-element.y))
+            randomInitCoord(flyingObject)
+        }
     })
     return coord
 }   
 export let randomSides = (sides)=>{
-    console.log(sides[Math.floor(Math.random()*2)])
     return sides[Math.floor(Math.random()*2)]
 }
 export let randomXCoord =()=>{
@@ -19,6 +27,9 @@ export let randomXCoord =()=>{
 }
 export let coordYRandInit = (value)=>{
    return -(Math.random()*(window.innerHeight-140)/2+value) //исправить нижнее положение
+}
+export let setCoordNlo = ()=>{
+    return {id:'randomSides',x:randomXCoord(),y:coordYRandInit(100)}
 }
 
 export let ballPosMove = (trig,anke)=>{ // движение шара через синус и косинус

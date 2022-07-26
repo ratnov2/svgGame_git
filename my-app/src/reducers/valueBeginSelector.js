@@ -13,3 +13,9 @@ export const getY = (state)=>{
 export const getFlyingObject = (state)=>{
     return state.valueBeginReducer.flyingObject
 }
+export const getPopadanie = (state)=>{
+    return state.valueBeginReducer.popadanie
+}
+export const getStartGame = (state)=>{
+    return state.valueBeginReducer.startGame
+}
