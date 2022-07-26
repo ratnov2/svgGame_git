@@ -5,6 +5,7 @@ const FlyingObjectBase = (props) => {
   const style = {
     fill: '#979797',
     stroke: '#5c5c5c',
+    pointerEvents: 'none'
   };
 
   return (

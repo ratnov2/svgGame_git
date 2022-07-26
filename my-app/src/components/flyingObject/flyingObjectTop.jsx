@@ -6,6 +6,7 @@ const FlyingObjectTop = (props) => {
   const style = {
     fill: '#b6b6b6',
     stroke: '#7d7d7d',
+    pointerEvents: 'none'
   };
 
   const baseWith = 40;

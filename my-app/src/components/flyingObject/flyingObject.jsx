@@ -10,7 +10,6 @@ import FlyingObjectBase from './flyingObjectBase';
 
 
 const FlyingObject = props => {
-    let flyingObject = useSelector(getFlyingObject)
 
     useEffect(()=>{
         //console.log('fddf : '+ flyingObject[0].x)

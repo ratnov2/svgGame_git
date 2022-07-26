@@ -39,3 +39,10 @@ export let ballPosMove = (trig,anke)=>{ // движение шара через 
      return 5*(Math.cos((anke)*Math.PI/180))
     else console.warn('sin or cos is incorrectly')
 }
+let ankeFun = (ancle)=>{
+    if (ancle < 0) return ancle = 90 - ancle
+    else return ancle = 270 - ancle
+  }
+export let formPosObjectBall = (posXY,anke)=>{
+   return {x:posXY.x+ballPosMove('sin',ankeFun(anke)),y:posXY.y+ballPosMove('cos',ankeFun(anke))}
+  }

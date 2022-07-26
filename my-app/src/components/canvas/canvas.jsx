@@ -14,24 +14,25 @@ import CannonBall from '../cannon/cannonBale';
 import StartGame from './textBegin/startGame';
 import Title from './textBegin/title';
 import TextBegin from './textBegin/textBegin';
-import { setCoordNlo } from '../../InitHelp/HelpFunction';
+import { ballPosMove, formPosObjectBall, setCoordNlo } from '../../InitHelp/HelpFunction';
 const sideOn = ['right','left']
 
 const Canvas = () => {
-  let startGame = useSelector(getStartGame)
+  const startGame = useSelector(getStartGame)
+  const  ancle = useSelector(getAncke)
+  const positionBale = useSelector(getPositionBale)
+  const flyingObjectValue = useSelector(getFlyingObject)
+  const popadanie = useSelector(getPopadanie)
+
   const [delay, setDelay] = useState(4000);
   const [delay2, setDelay2] = useState(20);
   const [pushNlo, setPushNlo] = useState(startGame);
   const [isRunning2, setIsRunning2] = useState(true);
-
-  const positionBale = useSelector(getPositionBale)
-  let flyingObjectValue = useSelector(getFlyingObject)
-  let popadanie = useSelector(getPopadanie)
+  const [kk1,kk2] = useState(false)
+  let [posXY,changePosXY] = useState({x:0,y:0})
   let coordNlo = setCoordNlo
   
-  let [kk1,kk2] = useState(false)
- 
-    
+  
     function useInterval(callback, delay) {
       const savedCallback = useRef();
     
@@ -63,12 +64,10 @@ const Canvas = () => {
       flyingObjectDis()
     },startGame ? 20 : null)
     useInterval(() => {
-      // Your custom logic here
       if(flyingObjectValue.length<9) {
         pushElementNLODis(coordNlo(flyingObjectValue))
       }else  setPushNlo(false)
     }, startGame ? delay : null );
-  
     useInterval(() => {
       flyingObjectValue.forEach((element,index)=>{
         if(  ((positionBale.x+60)>=element.x) 
@@ -82,49 +81,49 @@ const Canvas = () => {
         }
       })
       
-    }, isRunning2 ? delay2 : null  );
+    }, isRunning2 ? delay2 : null );
     
   const dispatch = useDispatch()
     const setPositionBaleSel = useCallback(
         (position) => dispatch(setPositionBale(position)),
         [dispatch]
       )
-      const flyingObjectDis = useCallback(
+    const flyingObjectDis = useCallback(
         () => dispatch(setFlyingObject()),
         [dispatch]
       )
-      const pushElementNLODis = useCallback(
+    const pushElementNLODis = useCallback(
         (element) => dispatch(pushElementNLO(element)),
         [dispatch]
       )
-      const DeleteindexNlo = useCallback(
+    const DeleteindexNlo = useCallback(
         (index) => dispatch(deleteNloIadro(index)),
         [dispatch]
       )
-      const disStartGame = useCallback(
+    const disStartGame = useCallback(
         (stan) => dispatch(changeStartGame(stan)),
         [dispatch]
       )
-      
-      
-    // useEffect(()=>{
-      
-    //   if(kk1)
-    //     pushElementNLODis({id:sideOn[(Math.floor(Math.random())*2)+1],x:200,y:-300})
-    //   //console.log(quantityNLO)
-    // },[quantityNLO])
-  const ancle = useSelector(getAncke)
+      useEffect(()=>{
+        setPositionBaleSel(posXY)
+       },[posXY])
+  
   const gameHeight = 1200;
-const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight];
+  const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight];
+  let rast = ()=>{
+    setInterval(()=>{
+      changePosXY(posXY =>formPosObjectBall(posXY,ancle)); //i have setInterval + hooks; dan abramov - useInterval
+   },20)
+   }
   return (
     <svg
       id="aliens-go-home-canvas"
       viewBox={viewBox} 
-      onClick = {(e)=>{
+      onClick = {(e)=> {
+       return (startGame ? rast() : undefined)
         // kk2(true)
         // setDelay(1000)
       }}
-      onContextMenu={()=>{console.log('2323')}}
     >
    
       <Sky positionBale = {setPositionBaleSel}/>
